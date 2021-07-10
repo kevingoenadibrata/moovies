@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faBoxOpen } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import Logo from "../Assets/logo.png";
 import { logoCss, navbarContainerCss } from "./Navbar.styles";
@@ -18,12 +18,14 @@ const Navbar = () => {
         css={logoCss}
         onClick={() => history.push("/")}
       />
-      <FontAwesomeIcon
-        icon={faHeart}
-        size="lg"
-        color={colors.pinkPrimary}
-        onClick={() => history.push("/mymoos")}
-      />
+      <div>
+        <FontAwesomeIcon
+          icon={faBoxOpen}
+          size="lg"
+          color={colors.pinkPrimary}
+          onClick={() => history.push("/mymoos")}
+        />
+      </div>
     </div>
   );
 };

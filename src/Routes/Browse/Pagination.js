@@ -2,7 +2,9 @@
 
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { stringify } from "query-string";
 import React from "react";
+import { useHistory } from "react-router-dom";
 import {
   getCaretCss,
   getPageElementCss,
@@ -11,11 +13,19 @@ import {
 
 const PAGE_PAD = 4;
 
-const Pagination = ({ count, current, onPageClick }) => {
+const Pagination = ({ count, current }) => {
+  const history = useHistory();
+
+  const handlePageClick = (i) => {
+    if (i >= 1 && i <= count) {
+      history.push(`?${stringify({ page: i })}`);
+    }
+  };
+
   const factoryElement = (val, active) => (
     <p
       css={getPageElementCss(active)}
-      onClick={() => (active ? null : onPageClick(val))}
+      onClick={() => (active ? null : handlePageClick(val))}
     >
       {val}
     </p>
@@ -71,13 +81,13 @@ const Pagination = ({ count, current, onPageClick }) => {
       <FontAwesomeIcon
         icon={faCaretLeft}
         css={getCaretCss(current === 1)}
-        onClick={() => onPageClick(current - 1)}
+        onClick={() => handlePageClick(current - 1)}
       />
       {getNumbers()}
       <FontAwesomeIcon
         icon={faCaretRight}
         css={getCaretCss(current === count)}
-        onClick={() => onPageClick(current + 1)}
+        onClick={() => handlePageClick(current + 1)}
       />
     </div>
   );

@@ -6,6 +6,8 @@ import axios from "axios";
 import MovieCard from "../../Components/MovieCard";
 import Pagination from "./Pagination";
 import Loader from "../../Components/Loader";
+import { useHistory, useLocation } from "react-router-dom";
+import { parse, stringify } from "query-string";
 
 const ENTRIES_PER_PAGE = 10;
 
@@ -14,10 +16,18 @@ const Browse = () => {
   const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const location = useLocation();
+  const history = useHistory();
 
-  const getData = async (requestedPage) => {
+  const getData = async () => {
     setIsLoading(true);
     try {
+      const parsedLocation = parse(location.search);
+      const requestedPage = parseInt(parsedLocation?.page);
+      if (!requestedPage) {
+        history.push(`?${stringify({ page: 1 })}`);
+        return;
+      }
       const res = await axios.get(
         `https://www.omdbapi.com/?apikey=15157d9e&s=Cow&page=${requestedPage}`
       );
@@ -31,12 +41,8 @@ const Browse = () => {
   };
 
   useEffect(() => {
-    getData(1);
-  }, []);
-
-  const onPageClick = (i) => {
-    if (i >= 1 && i <= pageCount) getData(i);
-  };
+    getData();
+  }, [location.search]);
 
   return (
     <div css={browseContainerCss}>
@@ -46,7 +52,7 @@ const Browse = () => {
       ) : (
         movies.map((item) => <MovieCard key={item?.imdbID} data={item} />)
       )}
-      <Pagination count={pageCount} current={page} onPageClick={onPageClick} />
+      <Pagination count={pageCount} current={page} />
     </div>
   );
 };

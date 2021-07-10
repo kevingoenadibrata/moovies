@@ -9,6 +9,7 @@ export const cardCss = css`
   background-color: ${colors.white};
   border-radius: 4px;
   margin-bottom: 8px;
+  cursor: pointer;
 `;
 
 export const innerCardCss = css`

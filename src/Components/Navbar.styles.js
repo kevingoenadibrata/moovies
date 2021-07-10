@@ -3,7 +3,7 @@ import { colors } from "../Constants/Colors";
 
 export const navbarContainerCss = css`
   position: fixed;
-  padding: 16px;
+  padding: 24px;
   height: 70px;
   width: 100%;
   max-width: 700px;
@@ -15,4 +15,5 @@ export const navbarContainerCss = css`
 `;
 export const logoCss = css`
   width: 150px;
+  cursor: pointer;
 `;

@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import { colors } from "./Constants/Colors";
 
 export const bodyCss = css`
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   background-color: ${colors.gray400};

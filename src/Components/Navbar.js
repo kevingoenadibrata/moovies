@@ -22,7 +22,7 @@ const Navbar = () => {
         <FontAwesomeIcon
           icon={faBoxOpen}
           size="lg"
-          color={colors.pinkPrimary}
+          color={colors.bluePrimary}
           onClick={() => history.push("/mymoos")}
         />
       </div>

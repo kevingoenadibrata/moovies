@@ -13,6 +13,7 @@ import {
   titleContainerCss,
 } from "./index.styles";
 import Poster from "./Poster";
+import Rating from "./Rating";
 
 const Details = () => {
   const { movieId } = useParams();
@@ -57,8 +58,10 @@ const Details = () => {
           <AddToMyMoo movieId={movieId} />
         </div>
       </div>
-      <Poster url={movie?.Poster} />
-      <DetailsElement title="IMDb Rating" value={movie?.imdbRating} />
+      <div>
+        <Poster url={movie?.Poster} />
+      </div>
+      <Rating value={movie?.imdbRating} />
       <DetailsElement title="Plot" value={movie?.Plot} />
       <DetailsElement title="Director" value={movie?.Director} />
       <DetailsElement title="Writer" value={movie?.Writer} />

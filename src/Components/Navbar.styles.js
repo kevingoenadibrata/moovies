@@ -10,9 +10,11 @@ export const navbarContainerCss = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${colors.white};
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: ${colors.blue700};
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
+  z-index: 5;
 `;
+
 export const logoCss = css`
   width: 150px;
   cursor: pointer;

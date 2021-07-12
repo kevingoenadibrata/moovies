@@ -7,7 +7,7 @@ import { loaderContainerCss } from "./Loader.styles";
 const Loader = () => {
   return (
     <div css={loaderContainerCss}>
-      <BarLoader />
+      <BarLoader color="white" />
     </div>
   );
 };

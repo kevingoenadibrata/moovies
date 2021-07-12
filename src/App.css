@@ -5,5 +5,13 @@
 }
 
 body {
-  background-color: #838383;
+  background-color: #10141f;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  color: white;
 }

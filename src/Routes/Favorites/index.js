@@ -40,7 +40,9 @@ const Favorites = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        movieData.map((item) => <MovieCard key={item?.imdbID} data={item} />)
+        movieData.map((item, index) => (
+          <MovieCard key={item?.imdbID} i={index} data={item} />
+        ))
       )}
     </div>
   );

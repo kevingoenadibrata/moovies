@@ -50,7 +50,9 @@ const Browse = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        movies.map((item) => <MovieCard key={item?.imdbID} data={item} />)
+        movies.map((item, index) => (
+          <MovieCard i={index} key={item?.imdbID} data={item} />
+        ))
       )}
       <Pagination count={pageCount} current={page} />
     </div>

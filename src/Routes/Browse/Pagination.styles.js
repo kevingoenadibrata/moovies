@@ -12,13 +12,14 @@ export const paginationContainerCss = css`
 
 export const getPageElementCss = (active) => css`
   margin: 0 12px;
-  color: ${active ? colors.pinkPrimary : "black"};
+  color: ${active ? colors.bluePrimary : "white"};
   font-weight: ${active ? 900 : "default"};
   cursor: pointer;
 `;
 
 export const getCaretCss = (disabled) => css`
-  opacity: ${disabled ? 0.3 : 1};
+  opacity: ${disabled ? 0.1 : 1};
   margin: 0 12px;
   cursor: pointer;
+  color: white;
 `;
